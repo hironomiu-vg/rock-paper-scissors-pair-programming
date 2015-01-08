@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap theme -->
+<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+<title>じゃんけんゲーム</title>
+
+<style type="text/css">
+ body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+ }
+ .sidebar-nav {
+  padding: 9px 0;
+ }
+</style>
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">hoge</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="content-header">
+                <h1>じゃんけんゲーム</h1>
+            </div>
+        </div>
+            <hr />
+        <div class="row">
+        <div class="col-sm-6">
+            <div class="row text-center">
+                <button type="button" class="btn rsp-btn" id="rock">グー</button>
+                <button type="button" class="btn rsp-btn" id="scissors">チョキ</button>
+                <button type="button" class="btn rsp-btn" id="paper">パー</button>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    <p>あなた</p>
+                    <img id="myrspimg" src="img/rock.png" />
+                </div>
+                <div class="col-sm-6 text-center">
+                    <p>ボブ</p>
+                    <img id="bobrspimg" src="img/scissors.png" />
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <p id="result" class="text-center">Who will win?</p>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="well sidebar-nav">
+                <ul class="nav nav-list">
+                    <li class="nav-header">じゃんけんゲーム</li>
+                    <ul>
+                        <li><h4>ボブとじゃんけん勝負ができます。あなたはグー、チョキ、パーのいずれかのボタンを押すことで出す手を選択できあなたが選択した手と同じ画像が表示され同時にボブがランダムに選択した手と同じ画像が表示されます。あなたとボブの勝敗結果が画像の下に表示されます。</h4></li> <br>
+                        <li>ペアプロ1st（各stepを15分交代で実施）
+                            <ul>
+                                <li>step1: 説明文の表示/非表示を実装しましょう</li>
+                                <li>step2: 勝敗結果の下に戦績（サマリー、履歴）を表示してください。戦績はブラウザを閉じるとリセットされます。戦績サマリーはxx勝xx敗xx分けと表示してください。戦績履歴は1回ごとの自分の手、相手の手、勝敗を表示してください。</li>
+                                <li>step3: スタートボタンを追加しましょう。押すと「じゃんけん」と表示されます。そしてボタンが押されるまでグーチョキパーは押せません。</li>
+                                <li>step4: 勝敗結果を派手にしましょう。画像を入れたり、エフェクトを掛けてみたりペア毎に案を出して実装しましょう</li>
+                            </ul>
+                        </li><br>
+                        <li>グループ開発（step関係なく10分交代で実施）
+                            <ul>
+                                <li>ジャンケンゲームを更に楽しくするアイディアを出しましょう。そしてどのアイディアを実装するかグループで決定しましょう</li>
+                                    <ul>
+                                        <li>例　対戦相手を複数にし、対戦相手ごとに特徴を出す</li>
+                                        <li>例　表示内容を派手にする</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; VOYAGE GROUP , Inc. All Rights Reserved.</p>
+        </footer>
+    </div><!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/rsp_local.js"></script>
+    <script src="http://192.168.56.14:35729/livereload.js"></script>
+</body>
+</html>
