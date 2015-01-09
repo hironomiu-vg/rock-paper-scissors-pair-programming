@@ -6,13 +6,12 @@ module.exports = function(grunt) {
 
         less: {
             build : {
-                src: ['src/style1.less','src/style2.less'],
-                dest: 'build/styles.css'
+                src: ['src/styles/base.less'],
+                dest: 'original/css/base.css'
             }
         },
         csslint:{
             check: {
-                //src: 'build/styles.css'
                 src: '<%= less.build.dest %>'
             }
         },
@@ -22,7 +21,7 @@ module.exports = function(grunt) {
                     banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */'
                 },
                 files: {
-                    'build/styles.min.css': '<%= less.build.dest %>'
+                    'original/css/base.min.css': '<%= less.build.dest %>'
                 }
             }
         },
@@ -31,21 +30,22 @@ module.exports = function(grunt) {
             options: {
                 livereload: true
             },
-            files: ['original/js/rsp_local.js','original/index.html'],
-            tasks: ['jshint']
+            files: ['original/js/rock-paper-scissors.js','original/index.html','src/styles/*.less'],
+            tasks: ['jshint','less','csslint','cssmin']
         },
         
         connect: {
             server: {
                 options: {
                     port: 8080,
-                    hostname: '192.168.56.14'
+                    hostname: 'localhost',
+                    base: 'original'
                 }
             }
         },
         jshint: {
             files: [
-              'original/js/rsp_local.js',
+              'original/js/rock-paper-scissors.js',
               'Gruntfile.js',
               'routes/**/*.js',
               'package.json',

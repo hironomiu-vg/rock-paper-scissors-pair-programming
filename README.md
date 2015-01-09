@@ -1,7 +1,8 @@
-# rsp_pair_programming
+# rock-paper-scissors-pair-programming
 
 ## install
-git clone git@github.com:hironomiu-vg/rsp_pair_programming.git
+git clone git@github.com:hironomiu-vg/rock-paper-scissors-pair-programming.git
 
 ## browse
-http://localhost/rsp_pair_programming/original/rsp_local.html
+http://localhost:8080
+
