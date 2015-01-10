@@ -1,8 +1,8 @@
 module.exports = function(grunt) {
-
     // config
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        config: grunt.file.readJSON('config.json'), 
 
         less: {
             build : {
@@ -37,8 +37,8 @@ module.exports = function(grunt) {
         connect: {
             server: {
                 options: {
-                    port: 8080,
-                    hostname: 'localhost',
+                    port: '<%= config.port %>',
+                    hostname: '<%= config.host %>',
                     base: 'original'
                 }
             }
