@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         less: {
             build : {
                 src: ['src/styles/base.less'],
-                dest: 'original/css/base.css'
+                dest: '<%= config.target %>/css/base.css'
             }
         },
         csslint:{
@@ -21,7 +21,7 @@ module.exports = function(grunt) {
                     banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */'
                 },
                 files: {
-                    'original/css/base.min.css': '<%= less.build.dest %>'
+                    '<%= config.target %>/css/base.min.css': '<%= less.build.dest %>'
                 }
             }
         },
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
             options: {
                 livereload: true
             },
-            files: ['original/js/rock-paper-scissors.js','original/index.html','src/styles/*.less'],
+            files: ['<%= config.target %>/js/rock-paper-scissors.js','<%= config.target %>/index.html','src/styles/*.less'],
             tasks: ['jshint','less','csslint','cssmin']
         },
         
@@ -39,18 +39,16 @@ module.exports = function(grunt) {
                 options: {
                     port: '<%= config.port %>',
                     hostname: '<%= config.host %>',
-                    base: 'original'
+                    base: '<%= config.target %>'
                 }
             }
         },
         jshint: {
             files: [
-              'original/js/rock-paper-scissors.js',
+              '<%= config.target %>/js/rock-paper-scissors.js',
               'Gruntfile.js',
-              'routes/**/*.js',
               'package.json',
               'test/**/*.js',
-              '*.js',
             ],
             options: {
                 jshintrc: '.jshintrc'

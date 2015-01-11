@@ -9,7 +9,7 @@
   "latedef": true,
   "maxdepth": 5,
   "maxparams": 5,
-  "maxlen": 100,
+  "maxlen": 180,
   "trailing" : true,
   "undef": true,
   "unused": true,
