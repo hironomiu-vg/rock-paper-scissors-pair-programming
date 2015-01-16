@@ -82,3 +82,30 @@ localhost以外でlivereloadを使う場合index.htmlの下記のlocalhostを変
 ```
 <script src="http://localhost:35729/livereload.js"></script>
 ```
+
+### plugins
+以下導入してあるpulugin
+
+- grunt-contrib-less
+
+  https://github.com/gruntjs/grunt-contrib-less
+  
+- grunt-contrib-csslint
+
+  https://github.com/gruntjs/grunt-contrib-csslint
+
+- grunt-contrib-cssmin
+
+  https://github.com/gruntjs/grunt-contrib-cssmin
+  
+- grunt-contrib-watch
+
+  https://github.com/gruntjs/grunt-contrib-watch
+  
+- grunt-contrib-connect
+
+  https://github.com/gruntjs/grunt-contrib-connect
+  
+- grunt-contrib-jshint
+
+  https://github.com/gruntjs/grunt-contrib-jshint
