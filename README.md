@@ -1,5 +1,46 @@
 # rock-paper-scissors-pair-programming
 
+## ディレクトリ構成
+```
+.
+├── Gruntfile.js
+├── README.md
+├── config.json.template
+├── original
+│   ├── bootstrap
+│   │   ├── css
+│   │   │   ├── bootstrap-theme.css
+│   │   │   ├── bootstrap-theme.css.map
+│   │   │   ├── bootstrap-theme.min.css
+│   │   │   ├── bootstrap.css
+│   │   │   ├── bootstrap.css.map
+│   │   │   └── bootstrap.min.css
+│   │   ├── fonts
+│   │   │   ├── glyphicons-halflings-regular.eot
+│   │   │   ├── glyphicons-halflings-regular.svg
+│   │   │   ├── glyphicons-halflings-regular.ttf
+│   │   │   └── glyphicons-halflings-regular.woff
+│   │   └── js
+│   │       ├── bootstrap.js
+│   │       ├── bootstrap.min.js
+│   │       └── npm.js
+│   ├── css
+│   │   ├── base.css
+│   │   └── base.min.css
+│   ├── img
+│   │   ├── paper.png
+│   │   ├── rock.png
+│   │   └── scissors.png
+│   ├── index.html
+│   └── js
+│       ├── jquery-2.1.3.min.js
+│       └── rock-paper-scissors.js
+├── package.json
+└── src
+    └── styles
+        └── base.less
+```
+
 ## install
 ```
 $ git clone git@github.com:hironomiu-vg/rock-paper-scissors-pair-programming.git
