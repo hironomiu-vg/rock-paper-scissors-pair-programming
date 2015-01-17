@@ -13,6 +13,19 @@ $(function(){
     $("#result").text(RESULT_MESSAGE[result]);
   });
 
+ $("#display-or-not").click(function(){
+    $(".specification").toggle({
+        complete: function(){
+                if ($("#display-or-not").text() === "非表示"){
+                        $("#display-or-not").text("表示");
+                }
+                else {
+                    $("#display-or-not").text("非表示");
+                }
+            }
+        });
+  });
+
   function bobHand() {
     return HAND_TYPE[ Math.floor(Math.random() * 3) ];
   }
