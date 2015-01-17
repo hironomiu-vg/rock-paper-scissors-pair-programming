@@ -3,10 +3,19 @@
   var HAND_TYPE = [ "rock" , "scissors" , "paper" ];
   var RESULT_CODE = { DRAW : 0, WIN : 1, LOSE : 2, };
   var RESULT_MESSAGE = [ "draw.","You win!","You lose!" ];
+  var count = [0, 0, 0];
 
   $(".rsp-btn").click(function(){
     var opponentHand = bobHand();
     var result = judge( $(this).attr("id"), opponentHand);
+    count[result]++;
+    document.getElementById("win").textContent = count[RESULT_CODE.WIN] + "勝";
+    document.getElementById("lose").textContent = count[RESULT_CODE.LOSE] + "負";
+    document.getElementById("draw").textContent = count[RESULT_CODE.DRAW] + "引き分け";
+
+    document.getElementById("log").appendChild(document.createTextNode(
+        "自分の手：" + $(this).attr("id") + "  相手の手：" + opponentHand + "  勝敗：" + RESULT_MESSAGE[result]));
+    document.getElementById("log").appendChild(document.createElement('br'));
 
     $("#myrspimg").attr("src", "img/" + $(this).attr("id") + ".png");
     $("#bobrspimg").attr("src", "img/" + opponentHand + ".png");
