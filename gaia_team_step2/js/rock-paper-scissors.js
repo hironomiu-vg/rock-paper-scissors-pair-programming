@@ -30,7 +30,7 @@ $(function(){
     $("#result").text(RESULT_MESSAGE[result]);
 
     $resultSummary.text(resultSummary.win + '勝' + resultSummary.lose + '敗' + resultSummary.draw + '分');
-    var resultRecord = "<p>" + "自分=>" + myHand + " 相手=>" + opponentHand + "結果=>" + resultString;
+    var resultRecord = "<p>" + "[自分]" + myHand + " ,[相手]" + opponentHand + " ,[結果]" + resultString;
     $resultHistory.prepend("<p>" + resultRecord + "</p>");
   });
 
