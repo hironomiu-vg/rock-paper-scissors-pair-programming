@@ -4,18 +4,14 @@
   var RESULT_CODE = { DRAW : 0, WIN : 1, LOSE : 2, };
   var RESULT_MESSAGE = [ "draw.","You win!","You lose!" ];
   var count = [0, 0, 0];
+  var myHand;
 
-  $(".rsp-btn").click(function(){
-    var opponentHand = bobHand();
-    var result = judge( $(this).attr("id"), opponentHand);
-      
-    RenewalLog(result, $(this).attr("id"), opponentHand);
-      
-    $("#myrspimg").attr("src", "img/" + $(this).attr("id") + ".png");
-    $("#bobrspimg").attr("src", "img/" + opponentHand + ".png");
-    $("#result").text(RESULT_MESSAGE[result]);
+  
 
-    isRunningMyTimer = false;
+  $(".rsp-btn").click(function () {
+      timerStatus = TIMER_STATUS.SELECTED;
+      $("#myrspimg").attr("src", "img/" + $(this).attr("id") + ".png");
+      myHand = $(this).attr("id");
   });
 
   function RenewalLog(result, myHand, opponentHand) {
@@ -71,21 +67,57 @@
 
   }
 
+  var TIMER_STATUS = { START: 0, SELECTED: 1, STOP: 2 };
   var counter = 0;
-  var isRunningMyTimer = true;
-  var isRunningOpponentTimer = true;
-
+  var timerStatus = TIMER_STATUS.START;
+  var speed = 100;
   (function runTimer() {
       counter = (++counter) % 3;
 
-      if (isRunningMyTimer) $("#myrspimg").attr("src", "img/" + HAND_TYPE[counter] + ".png");
-      if (isRunningOpponentTimer)$("#bobrspimg").attr("src", "img/" + HAND_TYPE[(counter + 1) % 3] + ".png");
+      if (timerStatus == TIMER_STATUS.START) {
+          document.getElementById('restart').style.display = 'none';
+          document.getElementById('selectButton').style.display = 'block';
 
-      setTimeout(
-          function () {
-              runTimer();
-          }, 100
-      );
+          $("#myrspimg").attr("src", "img/" + HAND_TYPE[counter] + ".png");
+          $("#bobrspimg").attr("src", "img/" + HAND_TYPE[(counter + 1) % 3] + ".png");  
+
+      } else if (timerStatus == TIMER_STATUS.SELECTED) {
+          document.getElementById('selectButton').style.display = 'none';
+          document.getElementById('restart').style.display = 'block';
+
+          $("#bobrspimg").attr("src", "img/" + HAND_TYPE[(counter + 1) % 3] + ".png");
+          speed+=50;
+          if (speed > 500) {
+              timerStatus = TIMER_STATUS.STOP;
+              speed = 100;
+              showResult(HAND_TYPE[((counter + 1) % 3)]);
+              console.log(HAND_TYPE[((counter + 1) % 3)]);
+
+          }      
+      }
+  
+
+    setTimeout(
+      function () {
+        runTimer();
+      }, speed
+    );
   })();
+
+  function showResult(opponentHand) {
+    //var opponentHand = bobHand();
+    var result = judge(myHand, opponentHand);
+
+    RenewalLog(result, myHand, opponentHand);
+
+   // $("#bobrspimg").attr("src", "img/" + opponentHand + ".png");
+    $("#result").text(RESULT_MESSAGE[result]);
+  }
+
+  document.getElementById('restart').onclick = function () {
+      timerStatus = TIMER_STATUS.START;
+      $("#result").text("ReTry!");
+      speed = 100;
+  }
 
 });

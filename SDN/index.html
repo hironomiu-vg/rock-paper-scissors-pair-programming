@@ -35,30 +35,32 @@
                 <div id="game" style="display:none;">
                     <h1>じゃんけんゲーム</h1>
                     <hr />
-                    <div class="text-center">
+                    <div class="text-center" id="selectButton">
                         <button type="button" class="btn rsp-btn" id="rock">グー</button>
                         <button type="button" class="btn rsp-btn" id="scissors">チョキ</button>
                         <button type="button" class="btn rsp-btn" id="paper">パー</button>
                     </div>
-                    <hr />
-                    <div class="col-sm-6 text-center"> <p>あなた</p><img id="myrspimg" src="img/rock.png" /> </div>
-                    <div class="col-sm-6 text-center"> <p>ボブ</p><img id="bobrspimg" src="img/scissors.png" /> </div>
-                    <hr />
-                    <p id="result" class="text-center">Who will win?</p>
-                
-                    <p id="win">
-                        0勝
-                    </p>
-                    <p id="lose">
-                        0負
-                    </p>
-                    <p id="draw">
-                        0引き分け
-                    </p>
-                    <span id="log">
+                    <div class="text-center" id="restart">
+                        <button type="button" class="btn">リスタート</button>
+                    </div>
+                        <hr />
+                        <div class="col-sm-6 text-center"> <p>あなた</p><img id="myrspimg" src="img/rock.png" /> </div>
+                        <div class="col-sm-6 text-center"> <p>ボブ</p><img id="bobrspimg" src="img/scissors.png" /> </div>
+                        <hr />
+                        <p id="result" class="text-center">Who will win?</p>
 
-                    </span>
-                </div>
+                        <p id="win">
+                            0勝
+                        </p>
+                        <p id="lose">
+                            0負
+                        </p>
+                        <p id="draw">
+                            0引き分け
+                        </p>
+                        <span id="log">
+                        </span>
+                    </div>
             </div>
             <input type="button" id="change_show" value="仕様を表示" />
             <div class="col-sm-6" id="specification" style="display:none;">  <!--最初は非表示にしておきます-->
