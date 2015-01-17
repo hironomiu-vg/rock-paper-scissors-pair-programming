@@ -11,8 +11,8 @@ $(function(){
 
   displayyourhand();
 
-  $(".your-hand").click(function(){
-    var yourHand = geneHand(parseInt($(".hand").attr("id")));
+  $(".your-hand").on("click", ".hand", function(){
+    var yourHand = geneHand(parseInt($(this).attr("id")));
     var opponentHand = bobHand();
     var result = judge( yourHand, opponentHand);
     displayyourhand();
