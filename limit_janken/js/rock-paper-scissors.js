@@ -50,7 +50,7 @@ $(function(){
     }
 
     for(var i = 0; i < OPPONENT_HAND.length; i++) {
-      $('.bob-hand').append("<img src='img/rock.jpg' />");
+      $('.bob-hand').append("<img src='img/rock.png' />");
     }
   }
 
