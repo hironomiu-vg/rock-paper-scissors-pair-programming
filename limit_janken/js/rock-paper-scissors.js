@@ -46,11 +46,11 @@ $(function(){
     $('.bob-hand').empty();
 
     for(var i = 0; i < YOUR_HAND.length; i++) {
-      $('.your-hand').append("<img id='" + i + "' class='hand' src='img/" + YOUR_HAND[i] + ".png' />");
+      $('.your-hand').append("<img id='" + i + "' class='hand' src='img/" + YOUR_HAND[i] + ".jpg' />");
     }
 
     for(var i = 0; i < OPPONENT_HAND.length; i++) {
-      $('.bob-hand').append("<img src='img/rock.png' />");
+      $('.bob-hand').append("<img src='img/rock.jpg' />");
     }
   }
 
