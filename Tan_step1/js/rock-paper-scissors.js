@@ -8,19 +8,25 @@
   $(".rsp-btn").click(function(){
     var opponentHand = bobHand();
     var result = judge( $(this).attr("id"), opponentHand);
-    count[result]++;
-    document.getElementById("win").textContent = count[RESULT_CODE.WIN] + "勝";
-    document.getElementById("lose").textContent = count[RESULT_CODE.LOSE] + "負";
-    document.getElementById("draw").textContent = count[RESULT_CODE.DRAW] + "引き分け";
-
-    document.getElementById("log").appendChild(document.createTextNode(
-        "自分の手：" + $(this).attr("id") + "  相手の手：" + opponentHand + "  勝敗：" + RESULT_MESSAGE[result]));
-    document.getElementById("log").appendChild(document.createElement('br'));
-
+      
+    RenewalLog(result, $(this).attr("id"), opponentHand);
+      
     $("#myrspimg").attr("src", "img/" + $(this).attr("id") + ".png");
     $("#bobrspimg").attr("src", "img/" + opponentHand + ".png");
     $("#result").text(RESULT_MESSAGE[result]);
   });
+
+  function RenewalLog(result, myHand, opponentHand) {
+      count[result]++;
+      document.getElementById("win").textContent = count[RESULT_CODE.WIN] + "勝";
+      document.getElementById("lose").textContent = count[RESULT_CODE.LOSE] + "負";
+      document.getElementById("draw").textContent = count[RESULT_CODE.DRAW] + "引き分け";
+
+      document.getElementById("log").appendChild(document.createTextNode(
+          "自分の手：" + myHand + "  相手の手：" + opponentHand + "  勝敗：" + RESULT_MESSAGE[result]));
+      document.getElementById("log").appendChild(document.createElement('br'));
+
+  }
 
   function bobHand() {
     return HAND_TYPE[ Math.floor(Math.random() * 3) ];
@@ -52,4 +58,18 @@
           document.getElementById('change_show').value = "非表示"
       }
   }
+
+  var isStarted = false;
+  //(function(){
+  //    document.getElementById('game').style.display = "none";
+  //})();
+  document.getElementById('start').onclick = function () {
+      if (!isStarted) {
+          document.getElementById('game').style.display = "block";
+          isStarted = true;
+          document.getElementById('start').textContent = "じゃんけん"
+      }
+
+  }
+
 });
