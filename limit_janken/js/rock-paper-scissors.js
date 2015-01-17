@@ -15,6 +15,7 @@ $(function(){
     var yourHand = geneHand(parseInt($(".hand").attr("id")));
     var opponentHand = bobHand();
     var result = judge( yourHand, opponentHand);
+    displayyourhand();
 
   //  $("#bobrspimg").attr("src", "img/" + opponentHand + ".png");
     $("#result").text(RESULT_MESSAGE[result]);
@@ -42,9 +43,14 @@ $(function(){
 
   function displayyourhand(){
     $('.your-hand').empty();
+    $('.bob-hand').empty();
 
     for(var i = 0; i < YOUR_HAND.length; i++) {
       $('.your-hand').append("<img id='" + i + "' class='hand' src='img/" + YOUR_HAND[i] + ".png' />");
+    }
+
+    for(var i = 0; i < OPPONENT_HAND.length; i++) {
+      $('.bob-hand').append("<img src='img/rock.png' />");
     }
   }
 
@@ -59,7 +65,7 @@ $(function(){
   function geneHand(choice){
     var handType = YOUR_HAND[choice];
     YOUR_HAND.splice(choice, 1);
-    displayyourhand();
+
     return handType;
   }
 
