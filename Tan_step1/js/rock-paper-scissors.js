@@ -60,9 +60,6 @@
   }
 
   var isStarted = false;
-  //(function(){
-  //    document.getElementById('game').style.display = "none";
-  //})();
   document.getElementById('start').onclick = function () {
       if (!isStarted) {
           document.getElementById('game').style.display = "block";
