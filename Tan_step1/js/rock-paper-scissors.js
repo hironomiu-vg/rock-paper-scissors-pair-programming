@@ -46,16 +46,16 @@
     return result;
   }
 
-  var isShowing = true;
+  var isShowing = false;
   document.getElementById('change_show').onclick = function () {
       if (isShowing) {
           document.getElementById('specification').style.display = "none";
           isShowing = false;
-          document.getElementById('change_show').value= "表示"
+          document.getElementById('change_show').value= "仕様を表示"
       } else {
           document.getElementById('specification').style.display = "block";
           isShowing = true;
-          document.getElementById('change_show').value = "非表示"
+          document.getElementById('change_show').value = "仕様を非表示"
       }
   }
 
@@ -64,7 +64,7 @@
       if (!isStarted) {
           document.getElementById('game').style.display = "block";
           isStarted = true;
-          document.getElementById('start').textContent = "じゃんけん"
+          document.getElementById('start').textContent = "じゃんけん!!"
       }
 
   }
