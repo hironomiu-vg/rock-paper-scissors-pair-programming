@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+
+<!-- Bootstrap core CSS -->
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap theme -->
+<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="css/base.min.css" rel="stylesheet">
+
+<title>じゃんけんゲーム</title>
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">VG-Tech-Dojo</a>
+            </div>
+          </div>
+        </nav>
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>じゃんけんゲーム</h1>
+                <hr />
+                <div class="text-center">
+                    <button type="button" class="btn rsp-btn" id="rock">グー</button>
+                    <button type="button" class="btn rsp-btn" id="scissors">チョキ</button>
+                    <button type="button" class="btn rsp-btn" id="paper">パー</button>
+                </div>
+                <hr />
+                <div class="col-sm-6 text-center"> <p>あなた</p><img id="myrspimg" src="img/rock.png" /> </div>
+                <div class="col-sm-6 text-center"> <p>ボブ</p><img id="bobrspimg" src="img/scissors.png" /> </div>
+                <hr />
+                <p id="result" class="text-center">Who will win?</p>
+            </div>
+            <div class="col-sm-6">
+                <div class="well well-sm">
+                    <ul class="nav list-unstyled">
+                        <li><h4>現在の仕様</h4>
+                        <h5>ボブとじゃんけん勝負ができます。あなたはグー、チョキ、パーのいずれかのボタンを押すことで出す手を選択でき、あなたが選択した手と同じ画像が表示されます。同時にボブがランダムに手を選択し同じ画像が表示されます。あなたとボブの勝敗結果が画像の下に表示されます。</h5> <br>
+                        </li>
+                        <li>追加仕様1:ペアプロ1st（各stepを15分で役割交代）
+                            <ul>
+                                <li>step1: この「現在の仕様」を表示/非表示と切り替えられるようにしてください。</li>
+                                <li>step2: 勝敗結果の下に戦績（集計、履歴）を表示してください。戦績はブラウザを閉じるとリセットします。戦績集計はxx勝xx敗xx分けと表示してください。戦績履歴は1回ごとの自分の手、相手の手、勝敗を表示してください。</li>
+                                <li>step3: スタートボタンを追加してください。押すと「じゃんけん」と表示してください。スタートボタンが押されるまではじゃんけんは出来ないようにしてください。</li>
+                                <li>step4: 勝敗結果を派手にしてください。画像を入れたり、エフェクトを掛けてみたりペア毎に案を出して実装してください。</li>
+                            </ul>
+                        </li><br>
+                        <li>追加仕様2:グループ開発（step関係なく10分で役割交代）
+                            <ul>
+                                <li>ジャンケンゲームを更に楽しくするアイディアを出し実装してください。</li>
+                                    <ul>
+                                        <li>例　対戦相手を複数にし、対戦相手ごとに特徴を出す</li>
+                                        <li>例　表示内容を派手にする</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; VOYAGE GROUP , Inc. All Rights Reserved.</p>
+        </footer>
+    </div><!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="js/rock-paper-scissors.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>
