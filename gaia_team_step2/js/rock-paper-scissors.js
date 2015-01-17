@@ -4,19 +4,25 @@ $(function(){
   var RESULT_CODE = { DRAW : 0, WIN : 1, LOSE : 2, };
   var RESULT_MESSAGE = [ "draw.","You win!","You lose!" ];
   var resultSummary = {win: 0, lose: 0, draw: 0},
-      $resultSummary = $('#result_summary');
+      $resultSummary = $('#result_summary'),
+      $resultHistory = $('#result_history');
+
 
   $(".rsp-btn").click(function(){
     var opponentHand = bobHand(),
         myHand = $(this).attr("id");
 
     var result = judge(myHand, opponentHand);
+    var resultString;
     if (result === RESULT_CODE.DRAW) {
         resultSummary.draw++;
+        resultString = 'draw';
     } else if (result=== RESULT_CODE.WIN) {
         resultSummary.win++;
+        resultString = 'win';
     } else if (result === RESULT_CODE.LOSE) {
         resultSummary.lose++;
+        resultString = 'lose';
     }
 
     $("#myrspimg").attr("src", "img/" + $(this).attr("id") + ".png");
@@ -24,6 +30,8 @@ $(function(){
     $("#result").text(RESULT_MESSAGE[result]);
 
     $resultSummary.text(resultSummary.win + '勝' + resultSummary.lose + '敗' + resultSummary.draw + '分');
+    var resultRecord = "<p>" + "自分=>" + myHand + " 相手=>" + opponentHand + "結果=>" + resultString;
+    $resultHistory.prepend("<p>" + resultRecord + "</p>");
   });
 
   $('#rule_description_toggle').on('click', function() {
