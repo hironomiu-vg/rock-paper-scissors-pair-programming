@@ -13,6 +13,10 @@ $(function(){
     $("#result").text(RESULT_MESSAGE[result]);
   });
 
+  $('#rule_description_toggle').on('click', function() {
+      $('#rule_description').toggle();
+  });
+
   function bobHand() {
     return HAND_TYPE[ Math.floor(Math.random() * 3) ];
   }
