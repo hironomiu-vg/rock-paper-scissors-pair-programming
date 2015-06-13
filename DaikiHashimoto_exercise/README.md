@@ -1,3 +1,0 @@
-Daiki Hashimoto
-Aizu university
-*
