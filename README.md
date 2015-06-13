@@ -1,5 +1,77 @@
 # rock-paper-scissors-pair-programming
 
+## リポジトリのclone
+```
+$ git clone git@github.com:hironomiu-vg/rock-paper-scissors-pair-programming.git
+```
+※**但しインターン時はforkしcloneすること**
+
+## 事前準備
+- 仮想サーバなどで利用する場合は事前にlivereload用のPORT 8080、35729を空けること
+- node.js,npmがインストールされていること
+- grunt-cliがインストールされていること
+  - インストールされていない場合、以下でインストールすること
+  ```
+  # npm install -g grunt-cli
+  ```
+
+## install
+```
+$ make install
+```
+
+## 開発
+ターミナルを二つ立ち上げ1つ目のターミナルでgruntを起動し、2つ目のターミナルで開発を行いましょう
+
+### ターミナル1 gruntによるタスク自動化
+`grunt`実行後`Waiting...`で常駐していることを確認（停止はCTL+Cで行う）
+```
+$ grunt
+Running "jshint:files" (jshint) task
+>> 3 files lint free.
+
+Running "less:build" (less) task
+File original/css/base.css created
+
+Running "csslint:check" (csslint) task
+>> 1 file lint free.
+
+Running "cssmin:minimize" (cssmin) task
+
+Running "connect:server" (connect) task
+Started connect web server on http://localhost:8080
+
+Running "watch" task
+Waiting...
+```
+#### 画面の確認
+grunt起動後、開発中の変更はgruntプラグインlivereloadにより自動的に反映される
+
+http://localhost:8080
+
+※localhost以外でlivereloadを使う場合index.htmlの下記のlocalhostを変更すること
+```
+<script src="http://localhost:35729/livereload.js"></script>
+```
+
+### ターミナル2 開発するにあたって
+original/index.htmlを編集し http://localhost:8080 で表示される内容が自動的に変わることを確認しましょう
+
+34行目`<h1>じゃんけんゲーム</h1>`を`<h1>livereload確認　じゃんけんゲーム</h1>`と書き換えてみましょう
+
+どのファイルを常時監視しているかはGruntfile.js内33行目のfilesで設定しています
+```
+watch: {
+             options: {
+                 livereload: true
+             },
+             files: ['<%= config.target %>/js/rock-paper-scissors.js','<%= config.target %>/index.html','src/styles/*.less'],
+             tasks: ['jshint','less','csslint','cssmin']
+         },
+```
+## Mission
+http://localhost:8080 に表示された追加仕様1、追加仕様2を実装してみましょう
+
 ## ディレクトリ構成
 ```
 .
@@ -41,55 +113,14 @@
         └── base.less
 ```
 
-## install
-```
-$ git clone git@github.com:hironomiu-vg/rock-paper-scissors-pair-programming.git
-```
-※但しペアプログラミング時はforkしcloneすること
-
-## setup
-仮想サーバなどで利用する場合PORT 8080、35729を空けること
-
-### config.jsonの準備
-- 作成後localhost以外のhostを利用する場合適時修正すること
-```
-$ cp config.json.template config.json
-```
-
-###  npm installの実行
-- node.js,npmがインストールされていること
-- grunt-cliがインストールされていること
-  - インストールされていない場合
-  ```
-  # npm install -g grunt-cli
-  ```
-- packageの導入
-```
-$ npm install
-```
-
-## gruntによるタスク自動化
-```
-$ grunt
-```
-
-### browse
-livereloadにより自動的に反映
-
-http://localhost:8080
-
-localhost以外でlivereloadを使う場合index.htmlの下記のlocalhostを変更すること
-```
-<script src="http://localhost:35729/livereload.js"></script>
-```
 
 ### plugins
-以下導入してあるpulugin
+以下導入してあるpuluginの一覧
 
 - grunt-contrib-less
 
   https://github.com/gruntjs/grunt-contrib-less
-  
+
 - grunt-contrib-csslint
 
   https://github.com/gruntjs/grunt-contrib-csslint
@@ -97,15 +128,15 @@ localhost以外でlivereloadを使う場合index.htmlの下記のlocalhostを変
 - grunt-contrib-cssmin
 
   https://github.com/gruntjs/grunt-contrib-cssmin
-  
+
 - grunt-contrib-watch
 
   https://github.com/gruntjs/grunt-contrib-watch
-  
+
 - grunt-contrib-connect
 
   https://github.com/gruntjs/grunt-contrib-connect
-  
+
 - grunt-contrib-jshint
 
   https://github.com/gruntjs/grunt-contrib-jshint

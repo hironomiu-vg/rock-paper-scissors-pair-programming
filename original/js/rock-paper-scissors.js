@@ -13,14 +13,6 @@ $(function(){
     $("#result").text(RESULT_MESSAGE[result]);
   });
 
-  $("#side-button").click(function(){
-    $("#side-menu").toggle();
-    if( $("#side-button").val() === "display-off" ){ 
-      $("#side-button").text("表示").val("display-on");
-    } else {
-      $("#side-button").text("非表示").val("display-off");
-    }
-  });
   function bobHand() {
     return HAND_TYPE[ Math.floor(Math.random() * 3) ];
   }
